@@ -1,40 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CSS ile Tasarlanmış Web Sayfam</title>
+	<title>Egestin Wiki</title>
 	<style>
 		body {
-			background-color: #f2f2f2;
-			font-family: "Times New Roman", serif; /* times new roman yazı tipi seçildi */
+			font-family: Arial, sans-serif;
 			margin: 0;
 			padding: 0;
 		}
-		h1 {
-			color: #333;
-			font-size: 36px;
-			text-align: center;
-			margin-top: 50px;
+
+		.header {
+			background-color: #f2f2f2;
+			padding: 20px;
 		}
-		p {
-			color: #666;
-			font-size: 18px;
+
+		.logo {
+			font-size: 24px;
+			font-weight: bold;
+			color: #000;
+			text-decoration: none;
+		}
+
+		.navigation {
+			background-color: #ccc;
+			padding: 10px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.navigation ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+		}
+
+		.navigation ul li {
+			margin-left: 20px;
+		}
+
+		.navigation ul li a {
+			color: #000;
+			text-decoration: none;
+		}
+
+		.content {
+			padding: 20px;
+		}
+
+		.article {
+			margin-bottom: 20px;
+		}
+
+		.article h2 {
+			font-size: 24px;
+			margin-top: 0;
+		}
+
+		.article p {
+			margin-top: 10px;
 			line-height: 1.5;
-			margin: 20px;
-			text-align: justify;
 		}
-		img {
-			display: block; 
-			margin: 0 auto;
-			max-width: 100%;
-			height: auto;
-			margin-top: 50px; 
+
+		.footer {
+			background-color: #000;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
 		}
 	</style>
 </head>
 <body>
-	<h1>Site-i Aliyye</h1>
-	<p>Yüce f kişisinin katkılarıyla oluşan bu site, gelecekte önemi büyük yerlere gelecektir.</p>
-	<p>Paydaşlar: Bir avuç egestinli, L1- kuruyemiş, Babbar, Ege Yüksel, j4k tekstil, f kişisinin ailesi.</p>
-	<img src="https://raw.githubusercontent.com/BOTGabe17/egeyuksel.github.io/main/t.png" alt="istediğim resim"> 
+	<header class="header">
+		<a href="/" class="logo">Egestin Wiki</a>
+	</header>
+
+	<nav class="navigation">
+		<ul>
+			<li><a href="#">Main Page</a></li>
+			<li><a href="#">Random Article</a></li>
+			<li><a href="#">Recent Changes</a></li>
+			<li><a href="#">Help</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+
+		<form action="#" method="get">
+			<input type="text" name="search" placeholder="Search...">
+			<button type="submit">Go</button>
+		</form>
+	</nav>
+
+	<div class="content">
+		<article class="article">
+			<h2>Deneme</h2>
+			<p>tortabuk146.</p>
+		</article>
+
+		<article class="article">
+			<h2>Ege'nin orduluğu</h2>
+			<p>Ege tır sil<p>
+			<p>Kendini as<p>
+			<p>Bebeklik<p>
+			<p>Bugün ti<p>
+			<p>Immm ım ın<p>
+			<p>Vızz sen kaçtın<p>
+			<p>Ben döndüm talibana iyo<p>
+			<p>Aaa adınakodum manitmnı<p>
+			<p>Pasladım agama var mı<p>
+			<p>Sorun adınakodum<p>
+			<p>Ege bebek sil.</p>
+		</article>
+	</div>
+
+	<footer class="footer">
+		<p>Egestin Wiki &copy; 2023</p>
+	</footer>
 </body>
 </html>
+
