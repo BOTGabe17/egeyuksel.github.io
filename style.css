@@ -11,13 +11,14 @@
     padding: 20px;
     left: 0;
     z-index: 1;
-    overflow: auto; /* eğer içeriği sidebar'dan büyükse, kaydırma çubuğu göster */
     max-height: 100vh; /* sidebar'ın maksimum yüksekliği */
     height: 100vh
   }
+  
+
+
 .sidebar-content {
     height: calc(100% - 120px);
-    overflow: auto;
 }
 
 .content {
@@ -79,9 +80,10 @@ a:hover {
   border: 1px solid #ccc;
   padding: 15px;
   min-height: 100px;
-  max-height: 400px; /* örnek olarak maksimum yükseklik 400px olarak belirlendi */
   display: flex;
   flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .code pre {
@@ -97,6 +99,7 @@ a:hover {
   position: relative;
 }
 
+
 .makale-kutusu {
     border: 1px solid #333;
     padding: 20px;
@@ -109,8 +112,8 @@ a:hover {
   .makale-kutusu img{
     float: left;
     margin-right: 25px;
-    width: 65px;
-    height: 65px;
+    width: 65px; /* resmin en fazla %50 genişliğe sahip olabileceğini belirtiyoruz */
+    height: auto;
   } 
 
   .makale-kutusu h2 {
@@ -139,7 +142,6 @@ a:hover {
     transform: translateY(-50%);
     width: 300px;
     height: auto;
-    padding: 0;
     background-color: #fff;
     border: 1px solid #333;
     border-bottom: 1px solid #333;
@@ -179,3 +181,4 @@ a:hover {
     margin: 0;
     width: 100%;
   }
+
