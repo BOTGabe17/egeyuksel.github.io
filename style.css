@@ -15,9 +15,6 @@
     max-height: 100vh; /* sidebar'ın maksimum yüksekliği */
     height: 100vh
   }
-  
-
-
 .sidebar-content {
     height: calc(100% - 120px);
     overflow: auto;
@@ -110,7 +107,7 @@ a:hover {
   }
 
 
-   .foto-kutusu {
+  .foto-kutusu {
     position: fixed;
     top: 30%;
     right: 10%;
