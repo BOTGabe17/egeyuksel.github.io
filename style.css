@@ -118,7 +118,7 @@ a:hover {
     background-color: #fff;
     border: 1px solid #333;
     border-bottom: 1px solid #333;
-    min-height: 300px;
+    min-height: 100px;
     max-height: 800px;
     display: flex;
     flex-direction: column;
