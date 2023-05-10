@@ -87,7 +87,7 @@ a:hover {
   .makale-kutusu img{
     float: left;
     margin-right: 25px;
-    max-width: 5%; /* resmin en fazla %50 genişliğe sahip olabileceğini belirtiyoruz */
+    width: 65px;
     height: auto;
   } 
 
