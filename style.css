@@ -72,6 +72,31 @@ a:hover {
     min-height: 100vh;
 }
 
+.code {
+  width: 700px;
+  height: auto;
+  background:#f5f5f5;
+  border: 1px solid #ccc;
+  padding: 15px;
+  min-height: 100px;
+  max-height: 400px; /* örnek olarak maksimum yükseklik 400px olarak belirlendi */
+  display: flex;
+  flex-direction: column;
+}
+
+.code pre {
+  margin: 0;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 22px;
+  color: #333333;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  position: relative;
+}
+
 .makale-kutusu {
     border: 1px solid #333;
     padding: 20px;
