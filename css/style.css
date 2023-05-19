@@ -75,6 +75,15 @@ a:hover {
   width: fit-content;*/
 }
 
+.baslik h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  padding-top: 10px;
+  font-family: 'Linux Libertine','Georgia','Times',serif;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 .content-wrap {
     margin-left: 200px;
     min-height: 100vh;
