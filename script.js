@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded", function() {
       if (ses.paused) {
         ses.play();
         sesliButon.classList.add("playing");
-        butonResim.src = "stop.png";
+        butonResim.src = "dur.png";
       } else {
         ses.pause();
         ses.currentTime = 0; // Sesin başa dönmesini sağlar
         sesliButon.classList.remove("playing");
-        butonResim.src = "play.png";
+        butonResim.src = "oynat.png";
       }
     });
   
     ses.addEventListener("ended", function() {
       sesliButon.classList.remove("playing");
-      butonResim.src = "play.png";
+      butonResim.src = "oynat.png";
     });
   });
