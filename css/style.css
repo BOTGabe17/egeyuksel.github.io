@@ -93,13 +93,28 @@ a:hover {
 
 
 .content p {
-  margin-top: 0;
+  margin-top: 15px;
   margin-bottom: 2px;
   margin-right: 20px;
   word-wrap: break-word;
   overflow-wrap: break-word;
   flex-wrap: wrap;
+}
+.bolum {
+  display: inline-flex;
+  align-items: center;
+  float: left;
+  margin: 15px;
+  border: 1px solid #333;
+  border-bottom: 1px solid #333;
+  padding: 10px;
+}
 
+.bolum p {
+  flex-shrink: 0;
+  margin: 0;
+  margin-right: 10px;
+  
 }
 
 .content-wrap {
@@ -222,9 +237,8 @@ a:hover {
     background: none;
     border: none;
     padding: 0;
-    position: fixed;
-    top: 770px;
-    left: 440px;
+    position: static;
+
   }
   
   #sesli-buton img {
