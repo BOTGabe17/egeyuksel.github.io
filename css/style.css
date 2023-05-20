@@ -1,5 +1,8 @@
 .container {
-    display: flex;
+  display: flex;
+  flex-direction: column;
+  
+
 }
 
 .sidebar {
@@ -11,7 +14,7 @@
     padding: 20px;
     left: 0;
     z-index: 1;
-    max-height: 100vh; /* sidebar'ın maksimum yüksekliği */
+    max-height: 100vh;
     height: 100vh
   }
   
@@ -26,7 +29,10 @@
     margin-left: 250px;
     flex: 1;
     box-sizing: border-box;
+    display: inline-block;
+    position: relative;
 }
+
 
 ul {
     list-style-type: none;
@@ -62,19 +68,6 @@ a:hover {
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
 }
-
-.content br {
-  padding-bottom: 20px;
-}
-
-.content p {
-  margin-top: 0;
-  margin-bottom: 2px;
-  margin-right: 20px;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
 .baslik h2 {
   border-bottom: 1px solid #ccc;
   padding-bottom: 5px;
@@ -91,6 +84,22 @@ a:hover {
   font-family: 'Linux Libertine','Georgia','Times',serif;
   margin-top: 15px;
   margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.content br {
+  padding-bottom: 20px;
+}
+
+
+.content p {
+  margin-top: 0;
+  margin-bottom: 2px;
+  margin-right: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  flex-wrap: wrap;
+
 }
 
 .content-wrap {
@@ -130,14 +139,14 @@ a:hover {
     padding: 20px;
     margin-bottom: 30px;
     width: 98%;
-    border-bottom: 1px solid #333; /* burada çizgi stilini ve rengini belirliyoruz */
+    border-bottom: 1px solid #333;
     overflow: hidden;
   }
 
   .makale-kutusu img{
     float: left;
     margin-right: 25px;
-    width: 65px; /* resmin en fazla %50 genişliğe sahip olabileceğini belirtiyoruz */
+    width: 65px;
     height: auto;
   } 
 
@@ -148,6 +157,7 @@ a:hover {
     display: inline;
     width: auto;
   }
+
   .makale-kutusu a:hover{
     color: #f1f1f1;
     background-color: #333;
@@ -161,10 +171,8 @@ a:hover {
 
 
   .foto-kutusu {
-    position: fixed;
-    top: 30%;
-    right: 10%;
-    transform: translateY(-50%);
+    position: static;
+    float:right;
     width: 300px;
     height: auto;
     background-color: #fff;
@@ -175,6 +183,9 @@ a:hover {
     display: flex;
     flex-direction: column;
     padding: 10px 0 0;
+    margin: 20px;
+
+    
   }
   
   .foto-kutusu img {
@@ -212,6 +223,8 @@ a:hover {
     border: none;
     padding: 0;
     position: fixed;
+    top: 770px;
+    left: 440px;
   }
   
   #sesli-buton img {
