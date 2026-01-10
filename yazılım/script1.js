@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* === BÜYÜK MANŞET === */
+  /* =======================
+     BÜYÜK MANŞET
+     ======================= */
   const bigHeadline = document.querySelector(".big-headline");
   const bigLeft = bigHeadline.querySelector(".arrow.left");
   const bigRight = bigHeadline.querySelector(".arrow.right");
@@ -33,8 +35,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateHeadline();
 
- /* === Yazar okları === */
-  document.addEventListener("DOMContentLoaded", function () {
+
+  /* =======================
+     YAZARLAR – INFINITE SLIDER
+     ======================= */
   const track = document.querySelector(".authors-track");
   const left = document.querySelector(".authors .arrow.left");
   const right = document.querySelector(".authors .arrow.right");
@@ -43,40 +47,37 @@ document.addEventListener("DOMContentLoaded", function () {
   const cardWidth = 300;
 
   let index = 1;
+
+  // başlangıç pozisyonu
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-  function move() {
-    track.style.transition = "transform 0.3s ease";
+  function move(withTransition = true) {
+    track.style.transition = withTransition ? "transform 0.3s ease" : "none";
     track.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
   right.addEventListener("click", () => {
     index++;
-    move();
+    move(true);
 
     if (index === cards.length - 1) {
       setTimeout(() => {
-        track.style.transition = "none";
         index = 1;
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        move(false);
       }, 300);
     }
   });
 
   left.addEventListener("click", () => {
     index--;
-    move();
+    move(true);
 
     if (index === 0) {
       setTimeout(() => {
-        track.style.transition = "none";
         index = cards.length - 2;
-        track.style.transform = `translateX(-${index * cardWidth}px)`;
+        move(false);
       }, 300);
     }
   });
-});
-
 
 });
-
