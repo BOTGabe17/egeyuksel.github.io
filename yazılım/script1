@@ -1,0 +1,5 @@
+document.querySelectorAll(".arrow").forEach(btn => {
+  btn.addEventListener("click", () => {
+    console.log("ok tıklandı");
+  });
+});
