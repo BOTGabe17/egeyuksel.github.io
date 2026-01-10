@@ -33,28 +33,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateHeadline();
 
-
-  /* === YAZARLAR === */
+ /* === Yazar okları === */
+  document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".authors-track");
-  const authorLeft = document.querySelector(".authors .arrow.left");
-  const authorRight = document.querySelector(".authors .arrow.right");
+  const left = document.querySelector(".authors .arrow.left");
+  const right = document.querySelector(".authors .arrow.right");
 
-  const total = document.querySelectorAll(".author-card").length;
-  let authorIndex = 0;
+  const cards = document.querySelectorAll(".author-card");
+  const cardWidth = 300;
 
-  function updateAuthors() {
-    track.style.transform = `translateX(-${authorIndex * 300}px)`;
+  let index = 1; // gerçek ilk karta başla
+  track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+  function slide() {
+    track.style.transition = "transform 0.3s ease";
+    track.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
-  authorLeft.addEventListener("click", () => {
-    authorIndex = (authorIndex - 1 + total) % total;
-    updateAuthors();
+  right.addEventListener("click", () => {
+    index++;
+    slide();
+
+    if (index === cards.length - 1) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        index = 1;
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+      }, 300);
+    }
   });
 
-  authorRight.addEventListener("click", () => {
-    authorIndex = (authorIndex + 1) % total;
-    updateAuthors();
+  left.addEventListener("click", () => {
+    index--;
+    slide();
+
+    if (index === 0) {
+      setTimeout(() => {
+        track.style.transition = "none";
+        index = cards.length - 2;
+        track.style.transform = `translateX(-${index * cardWidth}px)`;
+      }, 300);
+    }
   });
+});
+
 
 });
 
