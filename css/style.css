@@ -248,8 +248,90 @@ a:hover {
   }
   
   
-  
+  body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* BÜYÜK MANŞET */
+.big-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  overflow: hidden;
+}
+
+.headline-content {
+  max-width: 70%;
+  text-align: center;
+}
+
+.arrow {
+  font-size: 64px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* GÜNDEM */
+.section-title {
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+}
+
+.news-card {
+  border: 1px solid #ccc;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-body {
+  flex: 1;
+}
+
+.news-headline {
+  height: 50px;
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* YAZARLAR */
+.authors {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 60px 40px;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+}
+
+.author-card img {
+  margin-right: 15px;
+}
+
+/* FOOTER */
+.footer {
+  background: white;
+  border-top: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 40px;
+}
+
 
   
   
+
 
