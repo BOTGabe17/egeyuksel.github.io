@@ -1,83 +1,81 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  /* =======================
-     BÜYÜK MANŞET
-     ======================= */
-  const bigHeadline = document.querySelector(".big-headline");
-  const bigLeft = bigHeadline.querySelector(".arrow.left");
-  const bigRight = bigHeadline.querySelector(".arrow.right");
+  /* MANŞET */
+  const hTrack = document.querySelector(".headline-track");
+  const hCards = document.querySelectorAll(".headline-card");
+  const hLeft = document.querySelector(".headline .left");
+  const hRight = document.querySelector(".headline .right");
 
-  const titleEl = bigHeadline.querySelector("h1");
-  const descEl = bigHeadline.querySelector("p");
+  let hIndex = 1;
+  hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
 
-  const headlines = [
-    { title: "Birinci Manşet", desc: "Birinci açıklama" },
-    { title: "İkinci Manşet", desc: "İkinci açıklama" },
-    { title: "Üçüncü Manşet", desc: "Üçüncü açıklama" }
-  ];
-
-  let headlineIndex = 0;
-
-  function updateHeadline() {
-    titleEl.textContent = headlines[headlineIndex].title;
-    descEl.textContent = headlines[headlineIndex].desc;
+  function moveHeadline() {
+    hTrack.style.transition = "transform 0.35s linear";
+    hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
   }
 
-  bigLeft.addEventListener("click", () => {
-    headlineIndex = (headlineIndex - 1 + headlines.length) % headlines.length;
-    updateHeadline();
-  });
+  hRight.onclick = () => {
+    hIndex++;
+    moveHeadline();
+    if (hIndex === hCards.length - 1) {
+      setTimeout(() => {
+        hTrack.style.transition = "none";
+        hIndex = 1;
+        hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
+      }, 350);
+    }
+  };
 
-  bigRight.addEventListener("click", () => {
-    headlineIndex = (headlineIndex + 1) % headlines.length;
-    updateHeadline();
-  });
+  hLeft.onclick = () => {
+    hIndex--;
+    moveHeadline();
+    if (hIndex === 0) {
+      setTimeout(() => {
+        hTrack.style.transition = "none";
+        hIndex = hCards.length - 2;
+        hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
+      }, 350);
+    }
+  };
 
-  updateHeadline();
+  /* YAZARLAR */
+  const aTrack = document.querySelector(".authors-track");
+  const aCards = document.querySelectorAll(".author-card");
+  const aLeft = document.querySelector(".authors .left");
+  const aRight = document.querySelector(".authors .right");
 
+  let aIndex = 1;
+  const visible = 3;
 
-  /* =======================
-     YAZARLAR – INFINITE SLIDER
-     ======================= */
-  const track = document.querySelector(".authors-track");
-  const left = document.querySelector(".authors .arrow.left");
-  const right = document.querySelector(".authors .arrow.right");
+  aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
 
-  const cards = document.querySelectorAll(".author-card");
-  const cardWidth = 300;
-
-  let index = 1;
-
-  // başlangıç pozisyonu
-  track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-  function move(withTransition = true) {
-    track.style.transition = withTransition ? "transform 0.3s ease" : "none";
-    track.style.transform = `translateX(-${index * cardWidth}px)`;
+  function moveAuthors() {
+    aTrack.style.transition = "transform 0.35s linear";
+    aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
   }
 
-  right.addEventListener("click", () => {
-    index++;
-    move(true);
-
-    if (index === cards.length - 1) {
+  aRight.onclick = () => {
+    aIndex++;
+    moveAuthors();
+    if (aIndex === aCards.length - visible) {
       setTimeout(() => {
-        index = 1;
-        move(false);
-      }, 300);
+        aTrack.style.transition = "none";
+        aIndex = 1;
+        aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
+      }, 350);
     }
-  });
+  };
 
-  left.addEventListener("click", () => {
-    index--;
-    move(true);
-
-    if (index === 0) {
+  aLeft.onclick = () => {
+    aIndex--;
+    moveAuthors();
+    if (aIndex === 0) {
       setTimeout(() => {
-        index = cards.length - 2;
-        move(false);
-      }, 300);
+        aTrack.style.transition = "none";
+        aIndex = aCards.length - visible - 1;
+        aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
+      }, 350);
     }
-  });
+  };
 
 });
