@@ -1,80 +1,81 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Gazete</title>
-  <link rel="stylesheet" type="text/css" href="../css/style1.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- BÜYÜK MANŞET -->
-  <section class="big-headline">
-    <button class="arrow left">&#8249;</button>
+<!-- HEADER -->
+<header class="header">
+  <div class="top-grid">
+    <div class="logo small"></div>
+    <div class="logo big"></div>
+    <input placeholder="Ara...">
+  </div>
 
-    <div class="headline-content">
-      <h1>Büyük Manşet Başlığı</h1>
-      <p>Alt açıklama metni burada durur.</p>
-    </div>
+  <nav class="nav">
+    <span>Gündem</span>
+    <span>Ekonomi</span>
+    <span>Bilim</span>
+    <span>Kültür</span>
+    <span>Tarih</span>
+  </nav>
+</header>
 
-    <button class="arrow right">&#8250;</button>
-  </section>
-
-  <!-- GÜNDEM -->
-  <h2 class="section-title">GÜNDEM</h2>
-
-  <section class="news-grid">
-    <div class="news-card">
-      <div class="news-body"></div>
-      <div class="news-headline">Ekonomi sarsılıyor</div>
-    </div>
-
-    <div class="news-card">
-      <div class="news-body"></div>
-      <div class="news-headline">Siyasette yeni hamle</div>
-    </div>
-
-    <div class="news-card">
-      <div class="news-body"></div>
-      <div class="news-headline">Teknoloji dünyası</div>
-    </div>
-  </section>
-
-<section class="authors">
+<!-- MANŞET -->
+<section class="headline">
   <button class="arrow left">‹</button>
 
-  <div class="authors-viewport">
-    <div class="authors-track">
-  <!-- SON KART KLONU -->
-     <div class="author-card">Yazar 3</div>
-
-  <!-- GERÇEK KARTLAR -->
-     <div class="author-card">Yazar 1</div>
-     <div class="author-card">Yazar 2</div>
-     <div class="author-card">Yazar 3</div>
-
-  <!-- İLK KART KLONU -->
-     <div class="author-card">Yazar 1</div>
- </div>
-</div>    
+  <div class="headline-viewport">
+    <div class="headline-track">
+      <div class="headline-card">Mehteran</div>
+      <div class="headline-card">Bu Haftadaki Tarih Toplantısı</div>
+      <div class="headline-card">İslambol Gezisi</div>
+      <div class="headline-card">Mehteran</div>
+      <div class="headline-card">Bu Haftadaki Tarih Toplantısı</div>
+    </div>
+  </div>
 
   <button class="arrow right">›</button>
 </section>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div>
-      <strong>Gazete Adı</strong><br>
-      Tarafsız, bağımsız, uykusuz.
+<!-- HABERLER -->
+<section class="news">
+  <h2>GÜNDEM</h2>
+  <div class="news-grid">
+    <div class="news-card">Venezullada darbe!</div>
+    <div class="news-card">Ekonomide Yeni Trendler</div>
+    <div class="news-card">Bilimde Çığır Açan Keşif</div>
+  </div>
+</section>
+
+<!-- YAZARLAR -->
+<section class="authors">
+  <h2>Yazarlarımız</h2>
+
+  <button class="arrow left">‹</button>
+
+  <div class="authors-viewport">
+    <div class="authors-track">
+      <div class="author-card">Mehmed</div>
+      <div class="author-card">Mehmed Tuncer</div>
+      <div class="author-card">Ahmed Emre Uğur</div>
+      <div class="author-card">Mehmed Bera</div>
+      <div class="author-card">Yahya</div>
+      <div class="author-card">Mehmed</div>
     </div>
-    <div>
-      İletişim<br>
-      Künyemiz<br>
-      Yayın İlkeleri
-    </div>
-    <div>
-      © 2026
-    </div>
-  </footer>
+  </div>
+
+  <button class="arrow right">›</button>
+</section>
+
+<footer class="footer">
+  © 2026 Himaye Gazetesi
+</footer>
+
+<script src="script.js"></script>
 </body>
-   <script src="../yazılım/script1.js"></script>
 </html>
