@@ -14,47 +14,47 @@ document.addEventListener("DOMContentLoaded", function () {
     { title: "Üçüncü Manşet", desc: "Üçüncü açıklama" }
   ];
 
-  let index = 0;
+  let headlineIndex = 0;
 
   function updateHeadline() {
-    titleEl.textContent = headlines[index].title;
-    descEl.textContent = headlines[index].desc;
+    titleEl.textContent = headlines[headlineIndex].title;
+    descEl.textContent = headlines[headlineIndex].desc;
   }
 
   bigLeft.addEventListener("click", () => {
-    index = (index - 1 + headlines.length) % headlines.length;
+    headlineIndex = (headlineIndex - 1 + headlines.length) % headlines.length;
     updateHeadline();
   });
 
   bigRight.addEventListener("click", () => {
-    index = (index + 1) % headlines.length;
+    headlineIndex = (headlineIndex + 1) % headlines.length;
     updateHeadline();
   });
 
   updateHeadline();
 
+
   /* === YAZARLAR === */
-  document.addEventListener("DOMContentLoaded", function () {
   const track = document.querySelector(".authors-track");
-  const left = document.querySelector(".authors .arrow.left");
-  const right = document.querySelector(".authors .arrow.right");
+  const authorLeft = document.querySelector(".authors .arrow.left");
+  const authorRight = document.querySelector(".authors .arrow.right");
 
   const total = document.querySelectorAll(".author-card").length;
-  let index = 0;
+  let authorIndex = 0;
 
-  function update() {
-    track.style.transform = `translateX(-${index * 300}px)`;
+  function updateAuthors() {
+    track.style.transform = `translateX(-${authorIndex * 300}px)`;
   }
 
-  left.addEventListener("click", () => {
-    index = (index - 1 + total) % total;
-    update();
+  authorLeft.addEventListener("click", () => {
+    authorIndex = (authorIndex - 1 + total) % total;
+    updateAuthors();
   });
 
-  right.addEventListener("click", () => {
-    index = (index + 1) % total;
-    update();
+  authorRight.addEventListener("click", () => {
+    authorIndex = (authorIndex + 1) % total;
+    updateAuthors();
   });
-});
 
 });
+
