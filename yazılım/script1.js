@@ -34,20 +34,15 @@ document.addEventListener("DOMContentLoaded", function () {
   updateHeadline();
 
   /* === YAZARLAR === */
-  const authors = document.querySelector(".authors");
-  const authorLeft = authors.querySelector(".arrow.left");
-  const authorRight = authors.querySelector(".arrow.right");
+  const authorLeft = document.querySelector(".authors .arrow.left");
+  const authorRight = document.querySelector(".authors .arrow.right");
 
-const authorLeft = document.querySelector(".authors .arrow.left");
-const authorRight = document.querySelector(".authors .arrow.right");
+  authorLeft.addEventListener("click", () => {
+    console.log("Yazarlar sola");
+  });
 
-authorLeft.addEventListener("click", () => {
-  console.log("Yazarlar sola");
-});
-
-authorRight.addEventListener("click", () => {
-  console.log("Yazarlar sağa");
-});
-
+  authorRight.addEventListener("click", () => {
+    console.log("Yazarlar sağa");
+  });
 
 });
