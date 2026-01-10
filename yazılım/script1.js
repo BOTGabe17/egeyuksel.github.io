@@ -34,15 +34,27 @@ document.addEventListener("DOMContentLoaded", function () {
   updateHeadline();
 
   /* === YAZARLAR === */
-  const authorLeft = document.querySelector(".authors .arrow.left");
-  const authorRight = document.querySelector(".authors .arrow.right");
+  document.addEventListener("DOMContentLoaded", function () {
+  const track = document.querySelector(".authors-track");
+  const left = document.querySelector(".authors .arrow.left");
+  const right = document.querySelector(".authors .arrow.right");
 
-  authorLeft.addEventListener("click", () => {
-    console.log("Yazarlar sola");
+  const total = document.querySelectorAll(".author-card").length;
+  let index = 0;
+
+  function update() {
+    track.style.transform = `translateX(-${index * 300}px)`;
+  }
+
+  left.addEventListener("click", () => {
+    index = (index - 1 + total) % total;
+    update();
   });
 
-  authorRight.addEventListener("click", () => {
-    console.log("Yazarlar sağa");
+  right.addEventListener("click", () => {
+    index = (index + 1) % total;
+    update();
   });
+});
 
 });
