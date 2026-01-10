@@ -38,12 +38,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const authorLeft = authors.querySelector(".arrow.left");
   const authorRight = authors.querySelector(".arrow.right");
 
-  authorLeft.addEventListener("click", () => {
-    console.log("Yazarlar sola");
-  });
+const authorLeft = document.querySelector(".authors .arrow.left");
+const authorRight = document.querySelector(".authors .arrow.right");
 
-  authorRight.addEventListener("click", () => {
-    console.log("Yazarlar sağa");
-  });
+authorLeft.addEventListener("click", () => {
+  console.log("Yazarlar sola");
+});
+
+authorRight.addEventListener("click", () => {
+  console.log("Yazarlar sağa");
+});
+
 
 });
