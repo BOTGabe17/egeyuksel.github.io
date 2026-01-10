@@ -98,7 +98,18 @@ body {
   padding-top: 40px;
 }
 
+.authors-viewport {
+  width: 300px;
+  overflow: hidden;
+}
+
+.authors-track {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
 .author-card {
+  min-width: 300px;
   display: flex;
   align-items: center;
 }
