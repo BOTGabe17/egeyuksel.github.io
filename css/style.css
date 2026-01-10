@@ -17,6 +17,7 @@
     max-height: 100vh;
     height: 100vh
     display: none !important;
+    pointer-events: none;
   }
   
 
@@ -334,6 +335,7 @@ a:hover {
 
   
   
+
 
 
 
