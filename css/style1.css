@@ -1,0 +1,134 @@
+/* =========================
+   GAZETE.CSS
+   SADECE GAZETE SAYFASI
+   ========================= */
+
+/* GENEL */
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  background: #ffffff;
+  color: #111;
+}
+
+/* ORTAK OKLAR */
+.arrow {
+  font-size: 64px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.arrow:hover {
+  opacity: 0.6;
+}
+
+/* =========================
+   BÜYÜK MANŞET
+   ========================= */
+.big-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 60px;
+  border-bottom: 1px solid #ccc;
+}
+
+.headline-content {
+  max-width: 70%;
+  text-align: center;
+}
+
+.big-headline h1 {
+  font-size: 42px;
+  margin: 0 0 15px;
+}
+
+.big-headline p {
+  font-size: 18px;
+  margin: 0;
+  color: #444;
+}
+
+/* =========================
+   GÜNDEM
+   ========================= */
+.section-title {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 26px;
+  letter-spacing: 2px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  padding: 0 60px;
+}
+
+.news-card {
+  border: 1px solid #ccc;
+  height: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-body {
+  flex: 1;
+  background: #f5f5f5;
+}
+
+.news-headline {
+  padding: 12px;
+  font-size: 18px;
+  border-top: 1px solid #ccc;
+}
+
+/* =========================
+   YAZARLAR
+   ========================= */
+.authors {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 70px 60px;
+  border-top: 1px solid #ccc;
+  padding-top: 40px;
+}
+
+.author-card {
+  display: flex;
+  align-items: center;
+}
+
+.author-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.author-text strong {
+  display: block;
+  font-size: 18px;
+}
+
+.author-text span {
+  font-size: 14px;
+  color: #555;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+.footer {
+  border-top: 1px solid #ccc;
+  margin-top: 80px;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #333;
+}
