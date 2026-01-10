@@ -1,46 +1,43 @@
-/* BÜYÜK MANŞET */
+/* === BÜYÜK MANŞET === */
+const bigHeadline = document.querySelector(".big-headline");
+const bigLeft = bigHeadline.querySelector(".arrow.left");
+const bigRight = bigHeadline.querySelector(".arrow.right");
+
+const titleEl = bigHeadline.querySelector("h1");
+const descEl = bigHeadline.querySelector("p");
+
 const headlines = [
-  {
-    title: "Büyük Manşet Başlığı",
-    desc: "Alt açıklama metni burada durur."
-  },
-  {
-    title: "İkinci Büyük Manşet",
-    desc: "Ülke gündeminde sıcak gelişmeler."
-  },
-  {
-    title: "Üçüncü Büyük Manşet",
-    desc: "Ekonomi ve siyaset iç içe."
-  }
+  { title: "Birinci Manşet", desc: "Birinci açıklama" },
+  { title: "İkinci Manşet", desc: "İkinci açıklama" },
+  { title: "Üçüncü Manşet", desc: "Üçüncü açıklama" }
 ];
 
-let headlineIndex = 0;
+let index = 0;
 
-const headlineTitle = document.querySelector(".headline-content h1");
-const headlineDesc = document.querySelector(".headline-content p");
-const headlineArrows = document.querySelectorAll(".big-headline .arrow");
-
-headlineArrows[0].addEventListener("click", () => {
-  headlineIndex = (headlineIndex - 1 + headlines.length) % headlines.length;
+bigLeft.addEventListener("click", () => {
+  index = (index - 1 + headlines.length) % headlines.length;
   updateHeadline();
 });
 
-headlineArrows[1].addEventListener("click", () => {
-  headlineIndex = (headlineIndex + 1) % headlines.length;
+bigRight.addEventListener("click", () => {
+  index = (index + 1) % headlines.length;
   updateHeadline();
 });
 
 function updateHeadline() {
-  headlineTitle.textContent = headlines[headlineIndex].title;
-  headlineDesc.textContent = headlines[headlineIndex].desc;
+  titleEl.textContent = headlines[index].title;
+  descEl.textContent = headlines[index].desc;
 }
 
-/* YAZARLAR */
-const authors = [
-  {
-    name: "Ahmet Yılmaz",
-    last: "Ekonomi nereye gidiyor?"
-  },
-  {
-    name: "Mehmet Kaya",
-    last: "Siyasetin perde arkası
+/* === YAZARLAR === */
+const authors = document.querySelector(".authors");
+const authorLeft = authors.querySelector(".arrow.left");
+const authorRight = authors.querySelector(".arrow.right");
+
+authorLeft.addEventListener("click", () => {
+  console.log("Yazarlar sola");
+});
+
+authorRight.addEventListener("click", () => {
+  console.log("Yazarlar sağa");
+});
