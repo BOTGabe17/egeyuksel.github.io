@@ -42,17 +42,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const cards = document.querySelectorAll(".author-card");
   const cardWidth = 300;
 
-  let index = 1; // gerçek ilk karta başla
+  let index = 1;
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-  function slide() {
+  function move() {
     track.style.transition = "transform 0.3s ease";
     track.style.transform = `translateX(-${index * cardWidth}px)`;
   }
 
   right.addEventListener("click", () => {
     index++;
-    slide();
+    move();
 
     if (index === cards.length - 1) {
       setTimeout(() => {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   left.addEventListener("click", () => {
     index--;
-    slide();
+    move();
 
     if (index === 0) {
       setTimeout(() => {
