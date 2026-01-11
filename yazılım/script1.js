@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
 
   function moveHeadline() {
-    hTrack.style.transition = "transform 0.25s linear";
+    hTrack.style.transition = "transform 0.35s linear";
     hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
   }
 
