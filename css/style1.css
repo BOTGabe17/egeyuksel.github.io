@@ -153,29 +153,19 @@ body {
 .authors-track {
   display: flex;
   gap: 20px;
-  transition: transform 0.3s ease;
-  will-change: transform;
+  transition: transform 0.35s ease;
 }
 
 .author-card {
-  flex: 0 0 calc((100% - 40px) / 3); /* 3 kart + 2 gap */
+  flex: 0 0 33.3333%;
+  box-sizing: border-box;
   background: #fff;
   padding: 20px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   border: 1px solid #ddd;
-  min-width: 0; /* shrink engellemek için */
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .author-card { flex: 0 0 calc((100% - 20px) / 2); } /* 2 kart */
-}
-@media (max-width: 600px) {
-  .author-card { flex: 0 0 100%; } /* 1 kart */
 }
 
 .author-avatar {
