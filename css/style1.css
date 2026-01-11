@@ -150,14 +150,21 @@ body {
   width: 100%;
 }
 
+.authors-viewport {
+  overflow: hidden;   /* sadece 3 yazar görünür */
+  width: 100%;
+}
+
 .authors-track {
   display: flex;
   gap: 20px;
   will-change: transform;
+  flex-wrap: nowrap; /* alt satıra geçmesin */
 }
 
 .author-card {
-  width: 220px;
+  flex: 0 0 calc((100% - 40px) / 3); /* 3 yazar görünür, gap ile uyumlu */
+  max-width: 300px; /* opsiyonel, büyük ekranlarda büyümesin */
   background: #fff;
   padding: 20px 15px;
   box-sizing: border-box;
@@ -194,7 +201,6 @@ body {
   font-size: 0.9rem;
   color: #555;
 }
-
 /* FOOTER */
 .footer {
   background: #111;
