@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
 
   function moveHeadline() {
-    hTrack.style.transition = "transform 0.35s linear";
+    hTrack.style.transition = "transform 0.25s linear";
     hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
   }
 
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
 
   function moveAuthors() {
-    aTrack.style.transition = "transform 0.35s linear";
+    aTrack.style.transition = "transform 0.25s linear";
     aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
   }
 
