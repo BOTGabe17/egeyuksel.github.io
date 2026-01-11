@@ -141,7 +141,6 @@ body {
 
 .authors h2 {
   text-align: center;
-  font-size: 28px;
   margin-bottom: 30px;
 }
 
@@ -152,19 +151,16 @@ body {
 
 .authors-track {
   display: flex;
-  gap: 20px;
   transition: transform 0.35s ease;
 }
 
+/* === ASIL KRİTİK NOKTA === */
 .author-card {
-  flex: 0 0 33.3333%;
+  flex: 0 0 33.333333%;
   box-sizing: border-box;
-  background: #fff;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 20px 10px; /* boşluk buradan */
   text-align: center;
+  background: #fff;
   border: 1px solid #ddd;
 }
 
@@ -173,8 +169,7 @@ body {
   height: 90px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 15px;
-  background: #ccc;
+  margin: 0 auto 15px;
 }
 
 .author-avatar img {
@@ -185,7 +180,6 @@ body {
 
 .author-name {
   font-weight: bold;
-  margin-bottom: 8px;
 }
 
 .author-last {
@@ -193,23 +187,28 @@ body {
   color: #555;
 }
 
+/* Oklar */
 .authors .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 50px;
+  font-size: 48px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 10;
 }
 
 .authors .left { left: -10px; }
 .authors .right { right: -10px; }
 
 /* Responsive */
-@media (max-width: 900px) { .author-card { flex: 0 0 48%; } }
-@media (max-width: 600px) { .author-card { flex: 0 0 90%; } }
+@media (max-width: 900px) {
+  .author-card { flex: 0 0 50%; }
+}
+@media (max-width: 600px) {
+  .author-card { flex: 0 0 100%; }
+}
+
 /* FOOTER */
 .footer {
   background: #111;
