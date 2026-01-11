@@ -44,47 +44,53 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= YAZARLAR ================= */
 
    const track = document.querySelector(".authors-track");
-  const cards = document.querySelectorAll(".author-card");
+  const cards = Array.from(track.children);
   const left = document.querySelector(".authors .left");
   const right = document.querySelector(".authors .right");
 
-  const visible = 3;
-  const cloneCount = visible;
+  let index = 0;
 
-  let index = cloneCount;
-
-  function update() {
-    track.style.transform = `translateX(-${(index * 100) / visible}%)`;
+  function getCardWidth() {
+    return cards[0].getBoundingClientRect().width +
+      parseInt(getComputedStyle(track).gap);
   }
 
-  update();
+  function update() {
+    track.style.transform = `translateX(-${index * getCardWidth()}px)`;
+  }
 
   right.onclick = () => {
     index++;
-    track.style.transition = "transform 0.35s ease";
-    update();
-
-    if (index === cards.length - cloneCount) {
-      setTimeout(() => {
-        track.style.transition = "none";
-        index = cloneCount;
+    if (index >= cards.length) {
+      index = 0;
+      track.style.transition = "none";
+      update();
+      requestAnimationFrame(() => {
+        track.style.transition = "transform 0.35s ease";
+        index = 1;
         update();
-      }, 350);
+      });
+    } else {
+      update();
     }
   };
 
   left.onclick = () => {
     index--;
-    track.style.transition = "transform 0.35s ease";
-    update();
-
-    if (index === 0) {
-      setTimeout(() => {
-        track.style.transition = "none";
-        index = cards.length - cloneCount * 2;
+    if (index < 0) {
+      index = cards.length - 1;
+      track.style.transition = "none";
+      update();
+      requestAnimationFrame(() => {
+        track.style.transition = "transform 0.35s ease";
+        index--;
         update();
-      }, 350);
+      });
+    } else {
+      update();
     }
   };
+
+  window.addEventListener("resize", update);
 });
 
