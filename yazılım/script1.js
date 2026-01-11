@@ -44,53 +44,58 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ================= YAZARLAR ================= */
 
    const track = document.querySelector(".authors-track");
-  const cards = Array.from(track.children);
   const left = document.querySelector(".authors .left");
   const right = document.querySelector(".authors .right");
 
-  let index = 0;
+  let cards = Array.from(track.children);
+  const gap = parseInt(getComputedStyle(track).gap);
 
-  function getCardWidth() {
-    return cards[0].getBoundingClientRect().width +
-      parseInt(getComputedStyle(track).gap);
+  // clone first & last
+  const firstClone = cards[0].cloneNode(true);
+  const lastClone = cards[cards.length - 1].cloneNode(true);
+
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, cards[0]);
+
+  cards = Array.from(track.children);
+
+  let index = 1;
+
+  function cardWidth() {
+    return cards[0].getBoundingClientRect().width + gap;
   }
 
-  function update() {
-    track.style.transform = `translateX(-${index * getCardWidth()}px)`;
+  function update(animate = true) {
+    track.style.transition = animate ? "transform 0.35s ease" : "none";
+    track.style.transform = `translateX(-${index * cardWidth()}px)`;
   }
+
+  update(false);
 
   right.onclick = () => {
     index++;
-    if (index >= cards.length) {
-      index = 0;
-      track.style.transition = "none";
-      update();
-      requestAnimationFrame(() => {
-        track.style.transition = "transform 0.35s ease";
+    update();
+
+    if (index === cards.length - 1) {
+      setTimeout(() => {
         index = 1;
-        update();
-      });
-    } else {
-      update();
+        update(false);
+      }, 350);
     }
   };
 
   left.onclick = () => {
     index--;
-    if (index < 0) {
-      index = cards.length - 1;
-      track.style.transition = "none";
-      update();
-      requestAnimationFrame(() => {
-        track.style.transition = "transform 0.35s ease";
-        index--;
-        update();
-      });
-    } else {
-      update();
+    update();
+
+    if (index === 0) {
+      setTimeout(() => {
+        index = cards.length - 2;
+        update(false);
+      }, 350);
     }
   };
 
-  window.addEventListener("resize", update);
+  window.addEventListener("resize", () => update(false));
 });
 
