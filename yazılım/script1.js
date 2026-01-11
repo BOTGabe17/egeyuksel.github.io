@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* MANŞET */
+  /* ================= MANŞET ================= */
+
   const hTrack = document.querySelector(".headline-track");
   const hCards = document.querySelectorAll(".headline-card");
   const hLeft = document.querySelector(".headline .left");
@@ -17,64 +18,75 @@ document.addEventListener("DOMContentLoaded", () => {
   hRight.onclick = () => {
     hIndex++;
     moveHeadline();
+
     if (hIndex === hCards.length - 1) {
       setTimeout(() => {
         hTrack.style.transition = "none";
         hIndex = 1;
         hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
-      }, 350);
+      }, 300);
     }
   };
 
   hLeft.onclick = () => {
     hIndex--;
     moveHeadline();
+
     if (hIndex === 0) {
       setTimeout(() => {
         hTrack.style.transition = "none";
         hIndex = hCards.length - 2;
         hTrack.style.transform = `translateX(-${hIndex * 100}%)`;
-      }, 350);
+      }, 300);
     }
   };
 
-  /* YAZARLAR */
+  /* ================= YAZARLAR ================= */
+
   const aTrack = document.querySelector(".authors-track");
   const aCards = document.querySelectorAll(".author-card");
   const aLeft = document.querySelector(".authors .left");
   const aRight = document.querySelector(".authors .right");
 
-  let aIndex = 3;
-  const visible = 3;
+  const visible = 3;              // aynı anda görünen kart
+  const cloneCount = visible;     // başta ve sonda kaç klon var
 
-  aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
+  let aIndex = cloneCount;
+
+  aTrack.style.transform =
+    `translateX(-${(aIndex * 100) / visible}%)`;
 
   function moveAuthors() {
     aTrack.style.transition = "transform 0.25s linear";
-    aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
+    aTrack.style.transform =
+      `translateX(-${(aIndex * 100) / visible}%)`;
   }
 
   aRight.onclick = () => {
     aIndex++;
     moveAuthors();
-    if (aIndex === aCards.length - visible) {
+
+    if (aIndex === aCards.length - cloneCount) {
       setTimeout(() => {
         aTrack.style.transition = "none";
-        aIndex = 3;
-        aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
-      }, 350);
+        aIndex = cloneCount;
+        aTrack.style.transform =
+          `translateX(-${(aIndex * 100) / visible}%)`;
+      }, 300);
     }
   };
 
   aLeft.onclick = () => {
     aIndex--;
     moveAuthors();
+
     if (aIndex === 0) {
       setTimeout(() => {
         aTrack.style.transition = "none";
-        aIndex = aCards.length - visible - 1;
-        aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
-      }, 350);
+        aIndex = aCards.length - cloneCount * 2;
+        aTrack.style.transform =
+          `translateX(-${(aIndex * 100) / visible}%)`;
+      }, 300);
     }
   };
 
