@@ -90,5 +90,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.addEventListener("resize", updateTransform);
 });
-});
 
