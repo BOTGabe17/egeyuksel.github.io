@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const aLeft = document.querySelector(".authors .left");
   const aRight = document.querySelector(".authors .right");
 
-  let aIndex = 1;
+  let aIndex = 3;
   const visible = 3;
 
   aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
