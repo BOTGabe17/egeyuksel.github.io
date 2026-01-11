@@ -43,51 +43,48 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ================= YAZARLAR ================= */
 
-  const aTrack = document.querySelector(".authors-track");
-  const aCards = document.querySelectorAll(".author-card");
-  const aLeft = document.querySelector(".authors .left");
-  const aRight = document.querySelector(".authors .right");
+   const track = document.querySelector(".authors-track");
+  const cards = document.querySelectorAll(".author-card");
+  const left = document.querySelector(".authors .left");
+  const right = document.querySelector(".authors .right");
+
   const visible = 3;
   const cloneCount = visible;
-  let aIndex = cloneCount;
 
-  function updateTransform() {
-    const cardWidth = aCards[0].getBoundingClientRect().width;
-    const gap = parseInt(getComputedStyle(aTrack).gap) || 0;
-    aTrack.style.transform = `translateX(-${aIndex * (cardWidth + gap)}px)`;
+  let index = cloneCount;
+
+  function update() {
+    track.style.transform = `translateX(-${(index * 100) / visible}%)`;
   }
 
-  updateTransform();
+  update();
 
-  function move() {
-    aTrack.style.transition = "transform 0.35s ease";
-    updateTransform();
-  }
+  right.onclick = () => {
+    index++;
+    track.style.transition = "transform 0.35s ease";
+    update();
 
-  aRight.onclick = () => {
-    aIndex++;
-    move();
-    if (aIndex === aCards.length - cloneCount) {
+    if (index === cards.length - cloneCount) {
       setTimeout(() => {
-        aTrack.style.transition = "none";
-        aIndex = cloneCount;
-        updateTransform();
-      }, 360);
+        track.style.transition = "none";
+        index = cloneCount;
+        update();
+      }, 350);
     }
   };
 
-  aLeft.onclick = () => {
-    aIndex--;
-    move();
-    if (aIndex === 0) {
+  left.onclick = () => {
+    index--;
+    track.style.transition = "transform 0.35s ease";
+    update();
+
+    if (index === 0) {
       setTimeout(() => {
-        aTrack.style.transition = "none";
-        aIndex = aCards.length - cloneCount * 2;
-        updateTransform();
-      }, 360);
+        track.style.transition = "none";
+        index = cards.length - cloneCount * 2;
+        update();
+      }, 350);
     }
   };
-
-  window.addEventListener("resize", updateTransform);
 });
 
