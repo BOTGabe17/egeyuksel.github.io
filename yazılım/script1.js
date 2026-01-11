@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (aIndex === aCards.length - visible) {
       setTimeout(() => {
         aTrack.style.transition = "none";
-        aIndex = 1;
+        aIndex = 3;
         aTrack.style.transform = `translateX(-${(aIndex * 100) / visible}%)`;
       }, 350);
     }
