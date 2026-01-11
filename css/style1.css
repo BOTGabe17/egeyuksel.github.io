@@ -71,6 +71,65 @@ body {
   font-weight: bold;
 }
 
+/* Ayın gazetesi */
+.featured-paper {
+  max-width: 1200px;
+  margin: 60px auto 40px;
+  padding: 0 20px;
+}
+
+.featured-box {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #ddd;
+}
+
+.featured-text h2 {
+  margin-top: 0;
+  font-size: 30px;
+}
+
+.featured-cover {
+  background: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  height: 220px;
+}
+
+
+/* News */
+.news {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.news h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.news-card {
+  background: #eee;
+  padding: 20px;
+  height: 180px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* AUTHORS */
 
 .authors {
