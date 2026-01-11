@@ -135,14 +135,14 @@ body {
 .authors {
   max-width: 1200px;
   margin: 60px auto;
+  position: relative;
   padding: 0 20px;
 }
 
 .authors h2 {
-  font-size: 28px;
   text-align: center;
+  font-size: 28px;
   margin-bottom: 30px;
-  position: static; /* absolute kaldırıldı */
 }
 
 .authors-viewport {
@@ -150,30 +150,24 @@ body {
   width: 100%;
 }
 
-.authors-viewport {
-  overflow: hidden;   /* sadece 3 yazar görünür */
-  width: 100%;
-}
-
 .authors-track {
   display: flex;
   gap: 20px;
+  transition: transform 0.3s ease;
   will-change: transform;
-  flex-wrap: nowrap; /* alt satıra geçmesin */
 }
 
 .author-card {
-  flex: 0 0 calc((100% - 40px) / 3); /* 3 yazar görünür, gap ile uyumlu */
-  max-width: 300px; /* opsiyonel, büyük ekranlarda büyümesin */
+  flex: 0 0 32%;
+  min-width: 220px;
+  max-width: 300px;
   background: #fff;
-  padding: 20px 15px;
+  padding: 20px;
   box-sizing: border-box;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   border: 1px solid #ddd;
 }
 
@@ -201,6 +195,25 @@ body {
   font-size: 0.9rem;
   color: #555;
 }
+
+.authors .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.authors .left { left: -10px; }
+.authors .right { right: -10px; }
+
+/* Responsive */
+@media (max-width: 900px) { .author-card { flex: 0 0 48%; } }
+@media (max-width: 600px) { .author-card { flex: 0 0 90%; } }
+
 /* FOOTER */
 .footer {
   background: #111;
