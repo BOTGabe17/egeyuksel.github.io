@@ -48,18 +48,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const aLeft = document.querySelector(".authors .left");
   const aRight = document.querySelector(".authors .right");
 
-  const visible = 3;              // aynı anda görünen kart
-  const cloneCount = visible;     // başta ve sonda kaç klon var
+  const visible = 3;          // Aynı anda görünen kart sayısı
+  const cloneCount = visible; // Baş ve sondaki klon sayısı
 
   let aIndex = cloneCount;
 
-  aTrack.style.transform =
-    `translateX(-${(aIndex * 100) / visible}%)`;
+  // Gap değerini CSS’den al
+  const gap = parseInt(getComputedStyle(aTrack).gap) || 0;
+
+  function updateAuthorsTransform() {
+    const cardWidth = aCards[0].offsetWidth;
+    aTrack.style.transform = `translateX(-${aIndex * (cardWidth + gap)}px)`;
+  }
+
+  updateAuthorsTransform(); // Başlangıçta konum
 
   function moveAuthors() {
     aTrack.style.transition = "transform 0.25s linear";
-    aTrack.style.transform =
-      `translateX(-${(aIndex * 100) / visible}%)`;
+    updateAuthorsTransform();
   }
 
   aRight.onclick = () => {
@@ -70,8 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         aTrack.style.transition = "none";
         aIndex = cloneCount;
-        aTrack.style.transform =
-          `translateX(-${(aIndex * 100) / visible}%)`;
+        updateAuthorsTransform();
       }, 300);
     }
   };
@@ -84,10 +89,14 @@ document.addEventListener("DOMContentLoaded", () => {
       setTimeout(() => {
         aTrack.style.transition = "none";
         aIndex = aCards.length - cloneCount * 2;
-        aTrack.style.transform =
-          `translateX(-${(aIndex * 100) / visible}%)`;
+        updateAuthorsTransform();
       }, 300);
     }
   };
+
+  // Responsive durumlarda kart boyutu değişirse tekrar hesapla
+  window.addEventListener("resize", () => {
+    updateAuthorsTransform();
+  });
 
 });
