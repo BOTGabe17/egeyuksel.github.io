@@ -47,56 +47,47 @@ document.addEventListener("DOMContentLoaded", () => {
   const aCards = document.querySelectorAll(".author-card");
   const aLeft = document.querySelector(".authors .left");
   const aRight = document.querySelector(".authors .right");
-
-  const visible = 3;          // Aynı anda görünen kart sayısı
-  const cloneCount = visible; // Baş ve sondaki klon sayısı
-
+  const visible = 3;
+  const cloneCount = visible;
   let aIndex = cloneCount;
 
-  // Gap değerini CSS’den al
-  const gap = parseInt(getComputedStyle(aTrack).gap) || 0;
-
-  function updateAuthorsTransform() {
-    const cardWidth = aCards[0].offsetWidth;
+  function updateTransform() {
+    const cardWidth = aCards[0].getBoundingClientRect().width;
+    const gap = parseInt(getComputedStyle(aTrack).gap) || 0;
     aTrack.style.transform = `translateX(-${aIndex * (cardWidth + gap)}px)`;
   }
 
-  updateAuthorsTransform(); // Başlangıçta konum
+  updateTransform();
 
-  function moveAuthors() {
-    aTrack.style.transition = "transform 0.25s linear";
-    updateAuthorsTransform();
+  function move() {
+    aTrack.style.transition = "transform 0.35s ease";
+    updateTransform();
   }
 
   aRight.onclick = () => {
     aIndex++;
-    moveAuthors();
-
+    move();
     if (aIndex === aCards.length - cloneCount) {
       setTimeout(() => {
         aTrack.style.transition = "none";
         aIndex = cloneCount;
-        updateAuthorsTransform();
-      }, 300);
+        updateTransform();
+      }, 360);
     }
   };
 
   aLeft.onclick = () => {
     aIndex--;
-    moveAuthors();
-
+    move();
     if (aIndex === 0) {
       setTimeout(() => {
         aTrack.style.transition = "none";
         aIndex = aCards.length - cloneCount * 2;
-        updateAuthorsTransform();
-      }, 300);
+        updateTransform();
+      }, 360);
     }
   };
 
-  // Responsive durumlarda kart boyutu değişirse tekrar hesapla
-  window.addEventListener("resize", () => {
-    updateAuthorsTransform();
-  });
-
+  window.addEventListener("resize", updateTransform);
 });
+
