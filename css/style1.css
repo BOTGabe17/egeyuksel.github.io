@@ -134,9 +134,9 @@ body {
 /* YAZARLAR */
 .authors {
   max-width: 1200px;
-  margin: 60px auto;
+  margin: 80px auto;
   position: relative;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 .authors h2 {
@@ -146,49 +146,38 @@ body {
 
 .authors-viewport {
   overflow: hidden;
-  width: 100%;
 }
 
 .authors-track {
   display: flex;
+  gap: 20px;
   transition: transform 0.35s ease;
 }
 
-/* === ASIL KRİTİK NOKTA === */
 .author-card {
-  flex: 0 0 33.333333%;
-  box-sizing: border-box;
-  padding: 20px 10px; /* boşluk buradan */
-  text-align: center;
+  flex: 0 0 calc((100% - 40px) / 3);
   background: #fff;
   border: 1px solid #ddd;
-}
-
-.author-avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 15px;
-}
-
-.author-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.author-name {
+  padding: 40px 20px;
+  text-align: center;
   font-weight: bold;
 }
 
-.author-last {
-  font-size: 0.9rem;
-  color: #555;
+/* Tablet */
+@media (max-width: 900px) {
+  .author-card {
+    flex: 0 0 calc((100% - 20px) / 2);
+  }
 }
 
-/* Oklar */
-.authors .arrow {
+/* Mobil */
+@media (max-width: 600px) {
+  .author-card {
+    flex: 0 0 100%;
+  }
+}
+
+.arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -196,18 +185,11 @@ body {
   background: none;
   border: none;
   cursor: pointer;
+  z-index: 10;
 }
 
-.authors .left { left: -10px; }
-.authors .right { right: -10px; }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .author-card { flex: 0 0 50%; }
-}
-@media (max-width: 600px) {
-  .author-card { flex: 0 0 100%; }
-}
+.arrow.left { left: 0; }
+.arrow.right { right: 0; }
 
 /* FOOTER */
 .footer {
