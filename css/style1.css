@@ -1,3 +1,4 @@
+/* GENEL */
 body {
   margin: 0;
   font-family: Georgia, serif;
@@ -44,6 +45,7 @@ body {
   cursor: pointer;
 }
 
+/* MANŞET */
 .headline {
   max-width: 1200px;
   margin: 40px auto;
@@ -71,7 +73,7 @@ body {
   font-weight: bold;
 }
 
-/* Ayın gazetesi */
+/* AYIN GAZETESİ */
 .featured-paper {
   max-width: 1200px;
   margin: 60px auto 40px;
@@ -101,8 +103,7 @@ body {
   height: 220px;
 }
 
-
-/* News */
+/* HABERLER */
 .news {
   max-width: 1200px;
   margin: 60px auto;
@@ -130,15 +131,45 @@ body {
   justify-content: center;
 }
 
-/* AUTHORS */
-
+/* YAZARLAR */
 .authors {
   max-width: 1200px;
   margin: 60px auto;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+  padding: 0 20px;
 }
+
+.authors h2 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 30px;
+  position: static; /* absolute kaldırıldı */
+}
+
+.authors-viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.authors-track {
+  display: flex;
+  gap: 20px;
+  will-change: transform;
+}
+
+.author-card {
+  width: 220px;
+  background: #fff;
+  padding: 20px 15px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  border: 1px solid #ddd;
+}
+
 .author-avatar {
   width: 90px;
   height: 90px;
@@ -154,54 +185,28 @@ body {
   object-fit: cover;
 }
 
-
-.authors h2 {
-  position: absolute;
-  top: -40px;
+.author-name {
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
-.authors-viewport {
-  overflow: hidden;
-  width: 100%;
+.author-last {
+  font-size: 0.9rem;
+  color: #555;
 }
 
-.authors-track {
-  display: flex;
-  will-change: transform;
-}
-
-.author-card {
-  width: 220px;
-  background: #fff;
-  padding: 20px 15px;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;   
-  align-items: center;      
-  text-align: center;      
-
-  border: 1px solid #ddd;
-}
-
-.footer {
-  background: white;
-  text-align: center;
-  padding: 20px;
-  margin-top: 60px;
-}
-
+/* FOOTER */
 .footer {
   background: #111;
   color: #eee;
   margin-top: 80px;
   font-size: 14px;
+  padding: 40px 20px;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
