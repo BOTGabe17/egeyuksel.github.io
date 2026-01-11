@@ -152,15 +152,16 @@ body {
 
 .authors-track {
   display: flex;
-  gap: 20px;
-  transition: transform 0.35s ease;
+  gap: 19px; /* Aralarındaki boşluk */
+  transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .author-card {
-  flex: 0 0 33.3333%;
-  box-sizing: border-box;
+  flex: 0 0 calc((100% - 2 * 19px) / 3); /* 3 kart, gap hesaba katıldı */
   background: #fff;
   padding: 20px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -207,10 +208,8 @@ body {
 .authors .left { left: -10px; }
 .authors .right { right: -10px; }
 
-/* Responsive */
 @media (max-width: 900px) { .author-card { flex: 0 0 48%; } }
 @media (max-width: 600px) { .author-card { flex: 0 0 90%; } }
-
 /* FOOTER */
 .footer {
   background: #111;
