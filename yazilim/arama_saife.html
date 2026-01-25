@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Arama Sonuçları</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+<body>
+
+
+<header>
+  <!-- Üst Kısım -->
+  <div class="header-top">
+    <div class="logo-left">
+      <img src="himaye.png" alt="Sol Logo">
+    </div>
+
+    <div class="logo-center">
+      <img src="himaye_manşet.png" alt="Orta Logo">
+    </div>
+
+    <div class="search-right">
+      <input type="text" id="headerSearch" placeholder="Ara...">
+      <button id="searchBtn" class="search-btn">🔍</button>
+      <ul id="headerSearchResults" class="search-results"></ul>
+  </div>
+  </div>
+</div>
+  <!-- Alt Menü -->
+  <nav class="header-menu">
+    <a href="#">Tarih</a>
+    <a href="#">Edebiyat</a>
+    <a href="#">Fen</a>
+    <a href="#">Teknik</a>
+    <a href="gazete.html">Ana Sayfa</a>
+  </nav>
+</header>
+<div class="site-wrapper-arama">
+   <h2 id="searchResultsTitle" style="display:none;">Arama Sonuçları</h2>
+  <div class="results-container" id="resultsContainer">
+    <!-- JS ile arama sonuçları buraya gelecek -->
+  </div>
+</div>
+<div id="pagination">
+  <button id="prevBtn">‹</button>
+  <!-- sayfa butonları buraya -->
+  <button id="nextBtn">›</button>
+</div>
+  <footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-column">
+      <h3>Himaye Gazetecilik A.Ş.</h3>
+      <p>
+        Güncel haberler, tarih, kültür ve fikir yazılarıyla
+        bağımsız yayıncılık anlayışı.
+      </p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">
+          <svg width="20" height="20" fill="#ccc" viewBox="0 0 24 24">
+            <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99h-2.54v-2.89h2.54V9.83c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.25c-1.23 0-1.61.77-1.61 1.56v1.87h2.74l-.44 2.89h-2.3v6.99C18.34 21.12 22 16.99 22 12z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter">
+          <svg width="20" height="20" fill="#ccc" viewBox="0 0 24 24">
+            <path d="M22.46 6c-.77.35-1.6.59-2.46.7a4.3 4.3 0 001.88-2.37 8.57 8.57 0 01-2.72 1.04 4.28 4.28 0 00-7.3 3.9A12.14 12.14 0 013 4.9a4.28 4.28 0 001.32 5.7 4.24 4.24 0 01-1.94-.54v.05a4.28 4.28 0 003.44 4.2 4.29 4.29 0 01-1.93.07 4.28 4.28 0 003.99 2.97A8.57 8.57 0 012 19.54a12.08 12.08 0 006.56 1.92c7.88 0 12.2-6.53 12.2-12.2 0-.19-.01-.37-.02-.56A8.7 8.7 0 0022.46 6z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Instagram">
+          <svg width="20" height="20" fill="#ccc" viewBox="0 0 24 24">
+            <path d="M12 2.16c3.2 0 3.584.012 4.85.07 1.17.054 1.96.24 2.415.403a4.92 4.92 0 011.78 1.02 4.92 4.92 0 011.02 1.78c.163.454.35 1.245.403 2.415.058 1.266.07 1.65.07 4.85s-.012 3.584-.07 4.85c-.054 1.17-.24 1.96-.403 2.415a4.92 4.92 0 01-1.02 1.78 4.92 4.92 0 01-1.78 1.02c-.454.163-1.245.35-2.415.403-1.266.058-1.65.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.054-1.96-.24-2.415-.403a4.92 4.92 0 01-1.78-1.02 4.92 4.92 0 01-1.02-1.78c-.163-.454-.35-1.245-.403-2.415C2.172 15.584 2.16 15.2 2.16 12s.012-3.584.07-4.85c.054-1.17.24-1.96.403-2.415a4.92 4.92 0 011.02-1.78 4.92 4.92 0 011.78-1.02c.454-.163 1.245-.35 2.415-.403C8.416 2.172 8.8 2.16 12 2.16zm0-2.16C8.737 0 8.332.012 7.052.07 5.765.127 4.78.32 4.013.568a6.92 6.92 0 00-2.53 1.48 6.92 6.92 0 00-1.48 2.53c-.248.767-.441 1.752-.498 3.04C0 8.332 0 8.737 0 12s.012 3.668.07 4.948c.057 1.288.25 2.273.498 3.04a6.92 6.92 0 001.48 2.53 6.92 6.92 0 002.53 1.48c.767.248 1.752.441 3.04.498C8.332 24 8.737 24 12 24s3.668-.012 4.948-.07c1.288-.057 2.273-.25 3.04-.498a6.92 6.92 0 002.53-1.48 6.92 6.92 0 001.48-2.53c.248-.767.441-1.752.498-3.04C24 15.668 24 15.263 24 12s-.012-3.668-.07-4.948c-.057-1.288-.25-2.273-.498-3.04a6.92 6.92 0 00-1.48-2.53 6.92 6.92 0 00-2.53-1.48c-.767-.248-1.752-.441-3.04-.498C15.668 0 15.263 0 12 0z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h4>Kategoriler</h4>
+      <ul>
+        <li>Gündem</li>
+        <li>Ekonomi</li>
+        <li>Bilim</li>
+        <li>Kültür</li>
+        <li>Tarih</li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Kurumsal</h4>
+      <ul>
+        <li>Hakkımızda</li>
+        <li>Yazarlarımız</li>
+        <li>Yayın İlkeleri</li>
+        <li>İletişim</li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>İletişim</h4>
+      <p>
+        info@himayegazetesi.com<br>
+        İstanbul / Türkiye
+      </p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Himaye Gazetesi · Tüm hakları saklıdır
+  </div>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================= HEADER ARAMA ================= */
+
+  const input = document.getElementById("headerSearch");
+  const results = document.getElementById("headerSearchResults");
+  const btn = document.getElementById("searchBtn");
+  const container = document.getElementById("resultsContainer");
+  const paginationEl = document.getElementById("pagination");
+
+  const articles = ["haber4.html", "haber2.html", "haber3.html", "haber1.html"];
+
+  const authors = [
+    { name: "Mehmed Tuncer", url: "mehmet_tuncer.html" },
+    { name: "Mehmed Bera Ertuğrul", url: "yazar-mehmed-bera-ertugrul.html" },
+    { name: "Mehmed Adem Uyar", url: "yazar-mehmed-adem-uyar.html" },
+    { name: "Ahmed Emre Uğur", url: "yazar-ahmed-emre-ugur.html" },
+    { name: "Mehmed Sıddık Arvas", url: "yazar-mehmed-siddik-arvas.html" }
+  ];
+
+  function normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  }
+
+  function hasValidMatch(text, query) {
+    return normalizeText(text).includes(normalizeText(query));
+  }
+// --- Yardımcı Fonksiyon ---
+function normalizeText(text) {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function hasValidMatch(text, query) {
+  text = normalizeText(text);
+  query = normalizeText(query);
+
+  if (text.includes(query)) return true;
+
+  const words = text.split(/\s+/);
+  for (let i = 0; i <= query.length - 3; i++) {
+    const slice = query.slice(i, i + 3);
+    for (const word of words) {
+      if (word.includes(slice) && word.includes(query)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+// --- Canlı Arama ---
+async function getMatches(query) {
+  const matches = [];
+
+  // ----- MAKALELER -----
+  for (const url of articles) {
+    try {
+      const res = await fetch(url);
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, "text/html");
+
+      const title =
+        doc.querySelector(".news-title")?.textContent || "";
+      const title1 =
+      doc.querySelector(".article-title")?.textContent || "";
+
+      const metaKeywords =
+        doc.querySelector("meta[name='keywords']")?.getAttribute("content") || "";
+
+      if (hasValidMatch(title + " " + title1 + " " + metaKeywords, query)) {
+        matches.push({
+          title,
+          title1,
+          url,
+          type: "article"
+        });
+      }
+
+    } catch (e) {
+      console.error("Haber yüklenemedi:", url, e);
+    }
+  }
+
+  // ----- YAZARLAR -----
+  for (const author of authors) {
+    if (hasValidMatch(author.name, query)) {
+      matches.push({
+        title: author.name,
+        url: author.url,
+        type: "author"
+      });
+    }
+  }
+
+  return matches;
+}
+
+if (!input || !results || !btn) return;
+
+input.addEventListener("input", async () => {
+  const query = input.value.trim();
+  results.innerHTML = "";
+
+  if (query.length < 3) {
+    results.style.display = "block";
+
+    if (query.length > 0) {
+      const kalan = 3 - query.length;
+      const li = document.createElement("li");
+      li.textContent = `Lütfen ${kalan} karakter daha girin.`;
+      li.style.fontStyle = "italic";
+      li.style.color = "#555";
+      li.style.cursor = "default";
+      results.appendChild(li);
+    }
+
+    return;
+  }
+
+  const matches = await getMatches(query);
+
+  if (matches.length === 0) {
+    const li = document.createElement("li");
+    li.textContent = "Aradığınız kriterlere uygun sonuç bulunamadı.";
+    li.style.fontStyle = "italic";
+    li.style.color = "#555";
+    results.appendChild(li);
+    results.style.display = "block";
+    return;
+  }
+
+  for (const m of matches) {
+    const li = document.createElement("li");
+   const text = m.title || m.title1 || "";
+
+    li.textContent =
+    m.type === "author" ? `✍️ ${text}` : text;
+
+    li.onclick = () => window.location.href = m.url;
+    results.appendChild(li);
+  }
+
+  results.style.display = "block";
+});
+
+  btn.addEventListener("click", () => {
+  const query = input.value.trim();
+  if (query.length < 3)
+    window.location.href = `arama_saife.html?query=negatif`;
+  else
+    window.location.href = `arama_saife.html?query=${encodeURIComponent(query)}`;
+  });
+
+  input.addEventListener("keydown", e => {
+  if (e.key === "Enter") btn.click();
+  });
+
+  /* ================= ARAMA SAYFASI ================= */
+
+  const params = new URLSearchParams(window.location.search);
+  const queryPage = (params.get("query") || "").trim();
+
+  const ITEMS_PER_PAGE =1;
+  let currentPage = 1;
+  const resultsData = [];
+
+  function parseTurkishDate(text) {
+    if (!text) return null;
+    const months = {
+      ocak:0, şubat:1, mart:2, nisan:3, mayıs:4,
+      haziran:5, temmuz:6,  ağustos:7,
+       eylül:8, ekim:9, kasım:10,
+      aralık:11
+    };
+    const p = normalizeText(text).split(" ");
+    if (p.length < 3) return null;
+    return new Date(parseInt(p[2]), months[p[1]], parseInt(p[0]));
+  }
+
+  async function collectArticles() {
+    for (const url of articles) {
+      try {
+        const res = await fetch(url);
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, "text/html");
+
+        const title =
+          doc.querySelector(".news-title")?.textContent.trim() ||
+          doc.querySelector(".article-title")?.textContent.trim() || "";
+
+        const yazituru = doc.querySelector("meta[name='yazi-turu']")?.content || "haber";
+        const desc = doc.querySelector(".news-excerpt")?.textContent.trim() || "";
+        const img = doc.querySelector(".main-image img")?.getAttribute("src") || "";
+        const keywords = doc.querySelector("meta[name='keywords']")?.content || "";
+        const author = doc.querySelector("meta[name='author']")?.content || "";
+        const dateText = doc.querySelector(".article-date")?.textContent.trim() || "";
+        const dateObj = parseTurkishDate(dateText);
+
+        if (!hasValidMatch(title + " " + keywords + " " + author, queryPage)) continue;
+        let finalImg = img;
+
+        if (yazituru === "kose-yazisi") {
+         finalImg = "kose_yazisi_logo.png";
+          }
+
+        resultsData.push({
+          title,
+          desc,
+          img: finalImg,
+          url,
+          dateText,
+          dateObj,
+          yazituru
+        });
+
+      } catch (e) {
+        console.error("Haber yüklenemedi:", url);
+      }
+    }
+
+    resultsData.sort((a, b) => {
+      if (!a.dateObj) return 1;
+      if (!b.dateObj) return -1;
+      return b.dateObj - a.dateObj;
+    });
+
+    render();
+  }
+
+  function render() {
+    container.innerHTML = "";
+
+    if (resultsData.length === 0) {
+      container.innerHTML = "<p>Sonuç bulunamadı.</p>";
+      return;
+    }
+
+    const h2 = document.createElement("h2");
+    h2.textContent = "Arama Sonuçları";
+    container.appendChild(h2);
+
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+
+    resultsData.slice(start, end).forEach(item => {
+      const card = document.createElement("div");
+      card.className = "article-card";
+    
+      card.innerHTML = `
+        <div class="search-img">
+           <img src="${item.img}">
+          <p>${item.desc}</p>
+        </div>
+         
+          <h3>${item.title}</h3>
+          <span class="article-date">${item.dateText}</span>
+        </div>
+        <div class="article-text">
+          <p>${item.desc}</p>
+        </div>
+      `;
+      if (item.yazituru === "kose-yazisi") {
+      const imgDiv = card.querySelector(".search-img");
+      if (imgDiv) {
+      imgDiv.classList.add("search-img-2");
+      }
+}
+
+
+      card.onclick = () => location.href = item.url;
+      container.appendChild(card);
+    });
+
+    renderPagination();
+  }
+
+  function renderPagination() {
+  if (!paginationEl) return;
+  paginationEl.innerHTML = "";
+
+  const total = Math.ceil(resultsData.length / ITEMS_PER_PAGE);
+  if (total <= 1) return;
+
+  // ◀ PREV
+  const prevBtn = document.createElement("button");
+  prevBtn.textContent = "‹";
+  prevBtn.disabled = currentPage === 1;
+  prevBtn.style.opacity = currentPage === 1 ? "0.4" : "1";
+
+  prevBtn.onclick = () => {
+    if (currentPage > 1) {
+      currentPage--;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  paginationEl.appendChild(prevBtn);
+
+  // SAYFA NUMARALARI
+  const pages = getSmartPages(currentPage, total);
+
+  pages.forEach(p => {
+    if (p === "...") {
+      const span = document.createElement("span");
+      span.textContent = "...";
+      span.style.padding = "0 8px";
+      paginationEl.appendChild(span);
+      return;
+    }
+
+    const btn = document.createElement("button");
+    btn.textContent = p;
+    if (p === currentPage) btn.classList.add("active");
+
+    btn.onclick = () => {
+      currentPage = p;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    paginationEl.appendChild(btn);
+  });
+
+  // ▶ NEXT
+  const nextBtn = document.createElement("button");
+  nextBtn.textContent = "›";
+  nextBtn.disabled = currentPage === total;
+  nextBtn.style.opacity = currentPage === total ? "0.4" : "1";
+
+  nextBtn.onclick = () => {
+    if (currentPage < total) {
+      currentPage++;
+      render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  paginationEl.appendChild(nextBtn);
+}
+
+function getSmartPages(current, total) {
+  if (total <= 5) {
+    return Array.from({ length: total }, (_, i) => i + 1);
+  }
+
+  if (current <= 3) {
+    return [1, 2, 3, 4, "...", total];
+  }
+
+  if (current >= total - 2) {
+    return [1, "...", total - 3, total - 2, total - 1, total];
+  }
+
+  return [1, "...", current - 1, current, current + 1, "...", total];
+}
+
+  if (queryPage.length >= 3 && container) {
+    collectArticles();
+  } else if (container) {
+    container.innerHTML = "<p>Sonuç bulunamadı.</p>";
+  }
+
+});
+</script>
+
+
+ 
+
+</body>
+</html>
